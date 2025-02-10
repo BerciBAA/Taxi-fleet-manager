@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  title: OTP Mobil Kft. Backend API
+  description: REST API for managing vehicles.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/
+    description: Local development server
+
+paths:
+  /trips/suggestions:
+    get:
+      tags:
+        - Trips
+      summary: Suggest vehicles for a trip
+      description: Provide a list of vehicle suggestions based on passengers and distance.
+      operationId: suggestVehiclesForTrip
+      parameters:
+        - name: passengers
+          in: query
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: Number of passengers (must be at least 1)
+        - name: distance
+          in: query
+          required: true
+          schema:
+            type: number
+            format: double
+            minimum: 0.1
+          description: Distance in kilometers (must be greater than 0)
+      responses:
+        '200':
+          description: List of suggested vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TripSuggestionResponse'
+
+components:
+  schemas:
+    TripSuggestionResponse:
+      type: object
+      properties:
+        vehicleId:
+          type: string
+          format: uuid
+        passengerCapacity:
+          type: integer
+        rangeKm:
+          type: number
+          format: double
+        fuelType:
+          $ref: '#/components/schemas/FuelType'
+        profit:
+          $ref: '#/components/schemas/MonetaryAmount'
+      example:
+        vehicleId: "550e8400-e29b-41d4-a716-446655440000"
+        passengerCapacity: 4
+        rangeKm: 500.50
+        fuelType: "gasoline"
+        profit:
+          amount: 120.50
+          currency: EUR
+
+    FuelType:
+      type: string
+      enum:
+        - gasoline
+        - hybrid
+        - electric
+      description: Type of fuel used by the vehicle
+
+    MonetaryAmount:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          enum:
+            - EUR
+      description: Represents a monetary amount with currency
+      example:
+        amount: 120.50
+        currency: EUR

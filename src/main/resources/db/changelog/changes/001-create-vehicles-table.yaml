@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-vehicle-table
+      author: borzalbertadam@gmail.com
+      changes:
+        - createTable:
+            tableName: vehicles
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: passenger_capacity
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: range_km
+                  type: DECIMAL(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fuel_type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: availability_status
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false

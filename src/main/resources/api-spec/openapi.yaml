@@ -1,0 +1,9 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  /vehicles:
+    $ref: './vehicles/vehicles.yaml#/paths/~1vehicles'
+  /trips/suggestions:
+    $ref: './trips/trips.yaml#/paths/~1trips~1suggestions'
