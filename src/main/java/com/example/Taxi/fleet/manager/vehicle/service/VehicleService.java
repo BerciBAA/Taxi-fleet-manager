@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static org.hibernate.query.sqm.tree.SqmNode.log;
 
 @Service
 @Slf4j

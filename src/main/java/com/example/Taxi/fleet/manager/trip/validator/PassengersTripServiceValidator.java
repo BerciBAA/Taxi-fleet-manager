@@ -1,11 +1,8 @@
 package com.example.Taxi.fleet.manager.trip.validator;
 
-import com.example.Taxi.fleet.manager.base.ModelValidator;
 import com.example.Taxi.fleet.manager.base.ValidationException;
-import org.openapitools.model.TripSuggestionResponseModel;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -7,7 +7,6 @@ import org.openapitools.model.TripSuggestionResponseModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController

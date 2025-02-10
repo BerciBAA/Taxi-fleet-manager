@@ -1,8 +1,7 @@
 package com.example.Taxi.fleet.manager.vehicle.validator;
 
-import com.example.Taxi.fleet.manager.base.ValidationException;
 import com.example.Taxi.fleet.manager.base.ModelValidator;
-import jakarta.validation.Valid;
+import com.example.Taxi.fleet.manager.base.ValidationException;
 import org.openapitools.model.AvailableTypeModel;
 import org.openapitools.model.FuelTypeModel;
 import org.openapitools.model.VehicleRequestModel;
